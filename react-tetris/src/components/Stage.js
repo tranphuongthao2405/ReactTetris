@@ -1,9 +1,11 @@
-import React from 'react';
-import Cell from './Cell';
+import React from "react";
+import Cell from "./Cell";
 
 // with display screen with cells
-const Stage = ({stage}) => (
-    <div><Cell /></div>
-)
+const Stage = ({ stage }) => (
+  <div>
+    {stage.map((row) => row.map((cell, x) => <Cell key={x} type={cell[0]} />))}
+  </div>
+);
 
 export default Stage;
