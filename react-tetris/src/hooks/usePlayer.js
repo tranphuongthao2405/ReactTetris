@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 import { TETROMINOS, randomTetromino } from "../tetrominos";
 import { STAGE_WIDTH } from "../gameHelper";
 
-// custom hook
 export const usePlayer = () => {
   const [player, setPlayer] = useState({
     pos: { x: 0, y: 0 },
@@ -18,10 +17,8 @@ export const usePlayer = () => {
     }));
   };
 
-  // avoid infinity loop of useEffect in useStage
   const resetPlayer = useCallback(() => {
     setPlayer({
-      // set tetromino at middle top
       pos: { x: STAGE_WIDTH / 2 - 2, y: 0 },
       tetromino: randomTetromino().shape,
       collided: false,
